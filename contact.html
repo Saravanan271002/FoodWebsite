@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(45deg, #ff9a8b, #ffc3a0, #ff677d);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+}
+
+</style>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    if (name && email && message) {
+        document.getElementById('formResponse').innerHTML = `
+            <p style="color: green;">Thank you, ${name}. Your message has been sent!</p>
+        `;
+    } else {
+        document.getElementById('formResponse').innerHTML = `
+            <p style="color: red;">Please fill in all fields.</p>
+        `;
+    }
+});
+</script>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>FEEDBACK SIDE</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="contact-form">
+            <h1>Contact Us</h1>
+            <form id="contactForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <div id="formResponse"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Food Website</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

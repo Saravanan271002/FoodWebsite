@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast Menu</title>
+    <style>
+        body {
+            background-color: lightseagreen;
+            font-family: Arial, sans-serif;
+        }
+        .head {
+            background-color: black;
+            color: white;
+            text-shadow: 2px 2px red;
+            text-align: center;
+            padding: 10px;
+            border-radius: 50px;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: purple;
+            color: white;
+            width: 280px;
+            border-radius: 15px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+            border: 2px solid black;
+        }
+        .card p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        /* .card button {
+            display: block;
+            font-size: 18px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: lightyellow;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            margin-top: 20px;
+        }
+        .card button:hover {
+            background-color: yellow;
+        } */
+        .card button {
+  background-color: #f0f0f0;
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative; /* Needed for positioning the pseudo-element */
+  border-radius: 5px;
+  overflow: hidden; /* Hide the pseudo-element when it's outside the button */
+}
+
+card button ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px; /* Height of the "pulled down" part */
+  background-color: rgba(0, 0, 0, 0.1); /* Slightly darker shade */
+  transform: translateY(-4px); /* Initially positioned above the button */
+  transition: transform 0.2s ease;
+}
+
+.click-to-cart-button:hover::before {
+  transform: translateY(0); /* Move down on hover */
+}
+
+.click-to-cart-button:active::before {
+  transform: translateY(-2px); /* Move down a bit less on click */
+}
+        img{
+            width: 25px;
+            height: 50%;
+        }
+    </style>
+    <script>
+        function addToCart(item) {
+            alert(item + " added to cart!");
+        }
+    </script>
+</head>
+<body>
+    <div class="head">
+        <h1>Our Breakfast Items</h1>
+    </div>
+
+    <div class="menu">
+        <div class="card">
+            <h2>IDLY</h2>
+            <img src="idly.png" alt="Idly">
+            <p>"Start your day with a steaming plate of idlis and a sprinkle of happiness."</p>
+            <button onclick="addToCart('Idly')">Click To Cart</button>
+        </div>
+
+        <div class="card">
+            <h2>POORI</h2>
+            <img src="poori.png" alt="Poori">
+            <p>Nothing beats the smell of fresh pooris in the morning!</p>
+            <button onclick="addToCart('Poori')">Click To Cart</button>
+        </div>
+
+        <div class="card">
+            <h2>PONGAL</h2>
+            <img src="pongal.png" alt="Pongal">
+            <p>Here's to wishing all the people a very prosperous and happy Pongal Festival!</p>
+            <button onclick="addToCart('Pongal')">Click To Cart</button>
+        </div>
+
+        <div class="card">
+            <h2>DOSHA</h2>
+            <img src="dosha.png" alt="Dosha">
+            <p>"The perfect comfort food for any time of day 😋👌🏼 #FoodieFaves"</p>
+            <button onclick="addToCart('Dosha')">Click To Cart</button>
+        </div>
+    </div>
+</body>
+</html>
